@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отзывы</title>
+</head>
+
+<body>
+    <h1>Отзывы о продуктах</h1>
+    <input type="text" id="reviewInput" placeholder="Введите отзыв...">
+    <button onclick="addReview()">Отправить</button>
+    <div id="reviewsContainer"></div>
+
+    <script>
+        const initialData = [
+            {
+                product: "Apple iPhone 13",
+                reviews: [
+                    {
+                        id: "1",
+                        text: "Отличный телефон! Батарея держится долго.",
+                    },
+                    {
+                        id: "2",
+                        text: "Камера супер, фото выглядят просто потрясающе.",
+                    },
+                ],
+            },
+            {
+                product: "Samsung Galaxy Z Fold 3",
+                reviews: [
+                    {
+                        id: "3",
+                        text: "Интересный дизайн, но дорогой.",
+                    },
+                ],
+            },
+            {
+                product: "Sony PlayStation 5",
+                reviews: [
+                    {
+                        id: "4",
+                        text: "Люблю играть на PS5, графика на высоте.",
+                    },
+                ],
+            }
+        ];
+
+        // Функция для добавления отзыва
+        function addReview() {
+            const reviewInput = document.getElementById('reviewInput').value;
+            if (reviewInput.length < 50 || reviewInput.length > 500) {
+                alert('Длина отзыва должна быть от 50 до 500 символов.');
+            } else {
+                const reviewsContainer = document.getElementById('reviewsContainer');
+                const newReview = document.createElement('div');
+                newReview.textContent = reviewInput;
+                reviewsContainer.appendChild(newReview);
+            }
+        }
+    </script>
+
+</body>
+
+</html>
